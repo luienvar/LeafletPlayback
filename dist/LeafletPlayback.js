@@ -550,6 +550,7 @@ L.Playback.TrackController = L.Class.extend({
     // add single track
     addTrack : function (track, timestamp) {
         // return if nothing is set
+        console.debug("track",track, timestamp)
         if (!track) {
             return;
         }
@@ -788,7 +789,7 @@ L.Playback.DateControl = L.Control.extend({
     
 L.Playback.PlayControl = L.Control.extend({
     options : {
-        position : 'bottomright'
+        position : 'bottomleft'
     },
 
     initialize : function (playback) {
@@ -972,6 +973,7 @@ L.Playback = L.Playback.Clock.extend({
         // bad implementation
         addData : function (geoJSON, ms) {
             // return if data not set
+            console.debug("geoJSON",geoJSON)
             if (!geoJSON) {
                 return;
             }
