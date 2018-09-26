@@ -3,15 +3,15 @@ L.Playback = L.Playback || {};
 L.Playback.Control = L.Control.extend({
 
     _html:
-        '<footer class="lp">' +
+        '<footer id="playback-controller" class="lp">' +
         '  <div class="transport">' +
         '    <div class="navbar">' +
         '      <div class="navbar-inner">' +
         '        <div class="nav">' +
-        '          <div class="ctrl">' +
+        '          <div class="play-div">' +
         '            <div id="play-pause"><i id="play-pause-icon" class="fa fa-play fa-lg"></i></div>' +
         '          </div>' +
-        '          <div id="clock-btn" class="clock">' +
+        '          <div class="clock">' +
         '            <span id="cursor-date"></span><br/>' +
         '            <span id="cursor-time"></span>' +
         '          </div>' +
@@ -20,7 +20,7 @@ L.Playback.Control = L.Control.extend({
         '          <div>' +
         '            <div id="time-slider"></div>' +
         '          </div>' +
-        '          <div class="ctrl dropup dropdown">' +
+        '          <div class="dropdown">' +
         '            <button id="speed-btn" type="button" data-toggle="dropdown"><i class="fa fa-dashboard fa-lg"></i> <span id="speed-icon-val" class="speed">1</span>x</button>' +
         '            <div class="speed-menu dropdown-menu" role="menu" aria-labelledby="speed-btn">' +
         '              <label>Playback<br/>Speed</label>' +
@@ -49,6 +49,10 @@ L.Playback.Control = L.Control.extend({
         return L.DomUtil.create('div');
     },
 
+    removeControllerHtml: function (){
+        $('#playback-controller').remove()
+    },
+
     _setup: function () {
         var self = this;
         var playback = this.playback;
@@ -65,7 +69,7 @@ L.Playback.Control = L.Control.extend({
         });
 
         var startTime = playback.getStartTime();
-        $('#cursor-date').html(L.Playback.Util.DateStr(startTime));
+        $('#cursor-date').html(moment(startTime).format('YYYY-MM-DD'));
         $('#cursor-time').html(L.Playback.Util.TimeStr(startTime));
 
         $('#time-slider').slider({
@@ -111,7 +115,7 @@ L.Playback.Control = L.Control.extend({
     },
 
     _clockCallback: function (ms) {
-        $('#cursor-date').html(L.Playback.Util.DateStr(ms));
+        $('#cursor-date').html(moment(ms).format('YYYY-MM-DD'));
         $('#cursor-time').html(L.Playback.Util.TimeStr(ms));
         $('#time-slider').slider('value', ms);
     },
