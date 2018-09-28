@@ -21,10 +21,10 @@ L.Playback.Control = L.Control.extend({
         '            <div id="time-slider"></div>' +
         '          </div>' +
         '          <div class="dropdown">' +
-        '            <button id="speed-btn" type="button" data-toggle="dropdown"><i class="fa fa-dashboard fa-lg"></i> <span id="speed-icon-val" class="speed">1</span>x</button>' +
+        '            <button id="speed-btn" type="button" data-toggle="dropdown"><i class="fa fa-dashboard fa-lg"></i> <span id="speed-icon-val" class="speed">10</span>x</button>' +
         '            <div class="speed-menu dropdown-menu" role="menu" aria-labelledby="speed-btn">' +
         '              <label>Playback<br/>Speed</label>' +
-        '              <input id="speed-input" class="span1 speed" type="text" value="1" />' +
+        '              <input id="speed-input" class="span1 speed" type="text" value="10" />' +
         '              <div id="speed-slider"></div>' +
         '            </div>' +
         '          </div>' +
@@ -85,9 +85,9 @@ L.Playback.Control = L.Control.extend({
         });
 
         $('#speed-slider').slider({
-            min: -9,
-            max: 9,
-            step: .1,
+            min: 10,
+            max: 100,
+            step: 10,
             value: self._speedToSliderVal(this.playback.getSpeed()),
             orientation: 'vertical',
             slide: function (event, ui) {
@@ -122,12 +122,12 @@ L.Playback.Control = L.Control.extend({
 
     _speedToSliderVal: function (speed) {
         if (speed < 1) return -10 + speed * 10;
-        return speed - 1;
+        return speed;
     },
 
     _sliderValToSpeed: function (val) {
         if (val < 0) return parseFloat((1 + val / 10).toFixed(2));
-        return val + 1;
+        return val;
     },
 
     _combineDateAndTime: function (date, time) {
