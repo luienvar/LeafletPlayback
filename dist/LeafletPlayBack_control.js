@@ -70,7 +70,7 @@ L.Playback.Control = L.Control.extend({
 
         var startTime = playback.getStartTime();
         $('#cursor-date').html(moment(startTime).format('YYYY-MM-DD'));
-        $('#cursor-time').html(L.Playback.Util.TimeStr(startTime));
+        $('#cursor-time').html(moment(startTime).format('HH:mm:ss'));
 
         $('#time-slider').slider({
             min: playback.getStartTime(),
@@ -116,7 +116,7 @@ L.Playback.Control = L.Control.extend({
 
     _clockCallback: function (ms) {
         $('#cursor-date').html(moment(ms).format('YYYY-MM-DD'));
-        $('#cursor-time').html(L.Playback.Util.TimeStr(ms));
+        $('#cursor-time').html(moment(ms).format('HH:mm:ss'));
         $('#time-slider').slider('value', ms);
     },
 
