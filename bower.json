@@ -1,11 +1,14 @@
 {
-  "name": "LeafletPlayback Drivin",
+  "name": "leaflet.playback",
   "version": "0.0.1",
   "authors": [
     "Luis Varela"
   ],
   "description": "This is a Leaflet plug-in forked and modified",
-  "main": "dist/LeafletPlayback.js",
+  "main": [
+    "dist/LeafletPlayback.js",
+    "dist/LeafletPlayback_control.js"
+  ],
   "dependencies": {
     "leaflet": "~1.0.3",
     "jquery": ">=1.10",
