@@ -24,7 +24,7 @@ L.Playback.Control = L.Control.extend({
         '            <button id="speed-btn" type="button" data-toggle="dropdown"><i class="fa fa-dashboard fa-lg"></i> <span id="speed-icon-val" class="speed">10</span>x</button>' +
         '            <div class="speed-menu dropdown-menu" role="menu" aria-labelledby="speed-btn">' +
         '              <label>Playback<br/>Speed</label>' +
-        '              <input id="speed-input" class="span1 speed" type="text" value="10" />' +
+        '              <input id="speed-input" class="span1 speed" type="text" value="1000" />' +
         '              <div id="speed-slider"></div>' +
         '            </div>' +
         '          </div>' +
@@ -85,9 +85,9 @@ L.Playback.Control = L.Control.extend({
         });
 
         $('#speed-slider').slider({
-            min: 10,
-            max: 100,
-            step: 10,
+            min: 100,
+            max: 1000,
+            step: 100,
             value: self._speedToSliderVal(this.playback.getSpeed()),
             orientation: 'vertical',
             slide: function (event, ui) {
@@ -121,12 +121,12 @@ L.Playback.Control = L.Control.extend({
     },
 
     _speedToSliderVal: function (speed) {
-        if (speed < 1) return -10 + speed * 10;
+        if (speed < 1) return -100 + speed * 100;
         return speed;
     },
 
     _sliderValToSpeed: function (val) {
-        if (val < 0) return parseFloat((1 + val / 10).toFixed(2));
+        if (val < 0) return parseFloat((1 + val / 100).toFixed(2));
         return val;
     },
 
