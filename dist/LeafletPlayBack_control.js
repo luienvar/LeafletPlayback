@@ -21,10 +21,10 @@ L.Playback.Control = L.Control.extend({
         '            <div id="time-slider"></div>' +
         '          </div>' +
         '          <div class="dropdown">' +
-        '            <button id="speed-btn" type="button" data-toggle="dropdown"><i class="fa fa-dashboard fa-lg"></i> <span id="speed-icon-val" class="speed">10</span>x</button>' +
+        '            <button id="speed-btn" type="button" data-toggle="dropdown"><i class="fa fa-dashboard fa-lg"></i> <span id="speed-icon-val" class="speed">100</span>x</button>' +
         '            <div class="speed-menu dropdown-menu" role="menu" aria-labelledby="speed-btn">' +
         '              <label>Playback<br/>Speed</label>' +
-        '              <input id="speed-input" class="span1 speed" type="text" value="1000" />' +
+        '              <input id="speed-input" class="span1 speed" type="text" value="100" />' +
         '              <div id="speed-slider"></div>' +
         '            </div>' +
         '          </div>' +
