@@ -659,6 +659,7 @@ L.Playback.Clock = L.Class.extend({
   },
 
   getSpeed: function() {
+    console.debug("PlaybackSpeed",this._speed)
     return this._speed;
   },
 
@@ -904,7 +905,7 @@ L.Playback = L.Playback.Clock.extend({
 
         options : {
             tickLen: 250,
-            speed: 1,
+            speed: 100,
             maxInterpolationTime: 5*60*1000, // 5 minutes
 
             tracksLayer : true,
