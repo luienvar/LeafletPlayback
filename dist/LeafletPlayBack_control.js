@@ -101,7 +101,7 @@ L.Playback.Control = L.Control.extend({
             var speed = parseFloat($('#speed-input').val());
             if (!speed) return;
             playback.setSpeed(speed);
-            $('#speed-slider').slider('value', _speedToSliderVal(speed));
+            $('#speed-slider').slider('value', self._speedToSliderVal(speed));
             $('#speed-icon-val').html(speed);
             if (e.keyCode === 13) {
                 $('.speed-menu').dropdown('toggle');
