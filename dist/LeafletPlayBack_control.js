@@ -24,7 +24,6 @@ L.Playback.Control = L.Control.extend({
         '            <button id="speed-btn" type="button" data-toggle="dropdown"><i class="fa fa-dashboard fa-lg"></i> <span id="speed-icon-val" class="speed">100</span>x</button>' +
         '            <div class="speed-menu dropdown-menu" role="menu" aria-labelledby="speed-btn">' +
         '              <label>Playback<br/>Speed</label>' +
-        '              <input id="speed-input" class="span1 speed" type="text" value="100" />' +
         '              <div id="speed-slider"></div>' +
         '            </div>' +
         '          </div>' +
@@ -94,17 +93,6 @@ L.Playback.Control = L.Control.extend({
                 var speed = self._sliderValToSpeed(parseFloat(ui.value));
                 playback.setSpeed(speed);
                 $('.speed').html(speed).val(speed);
-            }
-        });
-
-        $('#speed-input').on('keyup', function (e) {
-            var speed = parseFloat($('#speed-input').val());
-            if (!speed) return;
-            playback.setSpeed(speed);
-            $('#speed-slider').slider('value', self._speedToSliderVal(speed));
-            $('#speed-icon-val').html(speed);
-            if (e.keyCode === 13) {
-                $('.speed-menu').dropdown('toggle');
             }
         });
 

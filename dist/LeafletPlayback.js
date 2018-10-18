@@ -904,7 +904,7 @@ L.Playback = L.Playback.Clock.extend({
         },
 
         options : {
-            tickLen: 250,
+            tickLen: 2500,
             speed: 100,
             maxInterpolationTime: 5*60*1000, // 5 minutes
 
